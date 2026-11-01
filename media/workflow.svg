@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Horde simulation workflow</title><desc id="desc">Fixed physics updates own state. Render updates interpolate transforms and advance the VAT clock.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#68d8cb" stroke-width="1.5"/></marker></defs>
+<rect width="1600" height="1000" fill="#0c1522"/>
+<path d="M60 136H1540" stroke="#294055"/>
+<text x="60" y="72" fill="#f2f6fa" font-family="Arial,sans-serif" font-size="36" font-weight="700">Horde simulation workflow</text>
+<text x="60" y="112" fill="#a9bed1" font-family="Arial,sans-serif" font-size="21">Fixed physics updates own state. Render updates interpolate transforms and advance the VAT clock.</text>
+<rect x="60" y="180" width="440" height="220" rx="12" fill="#142537" stroke="#36536a"/>
+<rect x="60" y="198" width="4" height="32" fill="#68d8cb"/>
+<text x="84" y="220" fill="#68d8cb" font-family="Arial,sans-serif" font-size="23" font-weight="700">01 / Horde brain</text>
+<text x="84" y="260" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">detect_player() → idle / roam / chase</text>
+<text x="84" y="290" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Shared intent and brain navigation</text>
+<text x="84" y="320" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Abduction schedules staggered deaths</text>
+<rect x="580" y="180" width="440" height="220" rx="12" fill="#142537" stroke="#36536a"/>
+<rect x="580" y="198" width="4" height="32" fill="#68d8cb"/>
+<text x="604" y="220" fill="#68d8cb" font-family="Arial,sans-serif" font-size="23" font-weight="700">02 / Individual agents</text>
+<text x="604" y="260" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Gravity → effects → state transition</text>
+<text x="604" y="290" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">State action → face_and_render()</text>
+<text x="604" y="320" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Packed arrays; no node per zombie</text>
+<rect x="1100" y="180" width="440" height="220" rx="12" fill="#142537" stroke="#36536a"/>
+<rect x="1100" y="198" width="4" height="32" fill="#68d8cb"/>
+<text x="1124" y="220" fill="#68d8cb" font-family="Arial,sans-serif" font-size="23" font-weight="700">03 / Budgeted navigation</text>
+<text x="1124" y="260" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Queue stable zombie IDs</text>
+<text x="1124" y="290" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">process_path_requests(): budget 16</text>
+<text x="1124" y="320" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Retries spread requests over ticks</text>
+<rect x="1100" y="500" width="440" height="220" rx="12" fill="#142537" stroke="#36536a"/>
+<rect x="1100" y="518" width="4" height="32" fill="#68d8cb"/>
+<text x="1124" y="540" fill="#68d8cb" font-family="Arial,sans-serif" font-size="23" font-weight="700">04 / Spatial queries + combat</text>
+<text x="1124" y="580" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Rebuild 5 m cells after movement</text>
+<text x="1124" y="610" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Radius / AABB broad phase</text>
+<text x="1124" y="640" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Shape test → damage / knockback</text>
+<rect x="580" y="500" width="440" height="220" rx="12" fill="#142537" stroke="#36536a"/>
+<rect x="580" y="518" width="4" height="32" fill="#68d8cb"/>
+<text x="604" y="540" fill="#68d8cb" font-family="Arial,sans-serif" font-size="23" font-weight="700">05 / Animation metadata</text>
+<text x="604" y="580" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">State → clip and playback rate</text>
+<text x="604" y="610" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Outgoing clip keeps advancing</text>
+<text x="604" y="640" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">die(): swap last agent into removed slot</text>
+<rect x="60" y="500" width="440" height="220" rx="12" fill="#142537" stroke="#36536a"/>
+<rect x="60" y="518" width="4" height="32" fill="#68d8cb"/>
+<text x="84" y="540" fill="#68d8cb" font-family="Arial,sans-serif" font-size="23" font-weight="700">06 / Render update</text>
+<text x="84" y="580" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Interpolate previous/current transforms</text>
+<text x="84" y="610" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Flush changed blend texture metadata</text>
+<text x="84" y="640" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">MultiMesh → VAT vertex shader</text>
+<path d="M500 290H580" fill="none" stroke="#68d8cb" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M1020 290H1100" fill="none" stroke="#68d8cb" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M1320 400V500" fill="none" stroke="#68d8cb" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M1100 610H1020" fill="none" stroke="#68d8cb" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M580 610H500" fill="none" stroke="#68d8cb" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="60" y="912" fill="#a9bed1" font-family="Arial,sans-serif" font-size="19">Source: scripts/enemies/horde.gd and addons/openvat_animated/src/open_vat_blend_controller.gd.</text>
+<text x="60" y="941" fill="#a9bed1" font-family="Arial,sans-serif" font-size="19">Array iteration stays O(N). Spatial hashing narrows candidates; dense cells and path queues can still be costly.</text>
+</svg>

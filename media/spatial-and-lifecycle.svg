@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Spatial queries and stable agent identity</title><desc id="desc">Broad-phase lookup reduces candidate work; stable IDs keep delayed work valid when arrays compact.</desc>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#68d8cb" stroke-width="1.5"/></marker></defs>
+<rect width="1600" height="1000" fill="#0c1522"/>
+<path d="M60 136H1540" stroke="#294055"/>
+<text x="60" y="72" fill="#f2f6fa" font-family="Arial,sans-serif" font-size="36" font-weight="700">Spatial queries and stable agent identity</text>
+<text x="60" y="112" fill="#a9bed1" font-family="Arial,sans-serif" font-size="21">Broad-phase lookup reduces candidate work; stable IDs keep delayed work valid when arrays compact.</text>
+<rect x="60" y="180" width="700" height="270" rx="12" fill="#142537" stroke="#36536a"/>
+<rect x="60" y="198" width="4" height="32" fill="#68d8cb"/>
+<text x="84" y="220" fill="#68d8cb" font-family="Arial,sans-serif" font-size="23" font-weight="700">Spatial query path</text>
+<text x="84" y="260" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Position → floor(X / 5), floor(Z / 5) → cell key</text>
+<text x="84" y="290" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">rebuild_spatial_hash(): cell → agent array indices</text>
+<text x="84" y="320" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">query_radius() / query_aabb(): visit relevant cells</text>
+<text x="84" y="350" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Narrow phase checks distance or hit geometry</text>
+<text x="84" y="380" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Avoidance caps accepted neighbors at 8; candidates may exceed 8</text>
+<rect x="840" y="180" width="700" height="270" rx="12" fill="#142537" stroke="#36536a"/>
+<rect x="840" y="198" width="4" height="32" fill="#68d8cb"/>
+<text x="864" y="220" fill="#68d8cb" font-family="Arial,sans-serif" font-size="23" font-weight="700">Deferred path request</text>
+<text x="864" y="260" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Queue stores zombie ID, rather than a temporary array index</text>
+<text x="864" y="290" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">process_path_requests() resolves ID at consumption time</text>
+<text x="864" y="320" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Missing or dying agent → ignore stale request</text>
+<text x="864" y="350" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Live agent → NavigationServer3D.map_get_path()</text>
+<text x="864" y="380" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Budget limits queued requests, not every navigation call</text>
+<rect x="60" y="550" width="700" height="210" rx="12" fill="#142537" stroke="#36536a"/>
+<rect x="60" y="568" width="4" height="32" fill="#68d8cb"/>
+<text x="84" y="590" fill="#68d8cb" font-family="Arial,sans-serif" font-size="23" font-weight="700">Example / remove slot 1</text>
+<text x="84" y="630" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Before: slots [0, 1, 2, 3] → IDs [10, 11, 12, 13]</text>
+<text x="84" y="660" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">die(1): move last slot and all related state to slot 1</text>
+<text x="84" y="690" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">After: visible slots [0, 1, 2] → IDs [10, 13, 12]</text>
+<rect x="840" y="550" width="700" height="210" rx="12" fill="#142537" stroke="#36536a"/>
+<rect x="840" y="568" width="4" height="32" fill="#68d8cb"/>
+<text x="864" y="590" fill="#68d8cb" font-family="Arial,sans-serif" font-size="23" font-weight="700">Example / consume ID 13</text>
+<text x="864" y="630" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">ID 13 now resolves to slot 1; animation phase is preserved</text>
+<text x="864" y="660" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">ID 11 resolves to -1; its queued work is discarded</text>
+<text x="864" y="690" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">MultiMesh allocation stays; visible_instance_count decreases</text>
+<path d="M410 450V550" fill="none" stroke="#68d8cb" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M1190 450V550" fill="none" stroke="#68d8cb" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M760 650H840" fill="none" stroke="#68d8cb" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="60" y="912" fill="#a9bed1" font-family="Arial,sans-serif" font-size="19">Source: Horde.cell_of(), rebuild_spatial_hash(), process_path_requests(), die(), resolve_zombie().</text>
+<text x="60" y="941" fill="#a9bed1" font-family="Arial,sans-serif" font-size="19">Tradeoffs: resolve_zombie() scans IDs; large queues and dense spatial cells can reduce the benefit of batching.</text>
+</svg>

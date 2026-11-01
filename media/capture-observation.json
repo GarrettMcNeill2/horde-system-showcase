@@ -1,0 +1,8 @@
+{
+	"agents": 256,
+	"draw_calls_whole_scene": 29.0,
+	"godot": "4.6.1-stable (official)",
+	"note": "Capture-run observation, not a benchmark. Grid lines and UI contribute draw calls.",
+	"occupied_cells": 66,
+	"renderer": "Apple M2 Pro"
+}

@@ -1,0 +1,27 @@
+PASS Navigation synchronized for 64
+PASS Population 64
+PASS Simulation moves 64-agent population
+PASS Spatial hash finds agent
+PASS MultiMesh visibility matches population
+PASS VAT capacity matches population
+PASS Navigation synchronized for 256
+PASS Population 256
+PASS Simulation moves 256-agent population
+PASS Spatial hash finds agent
+PASS MultiMesh visibility matches population
+PASS VAT capacity matches population
+PASS Navigation synchronized for 1024
+PASS Population 1024
+PASS Simulation moves 1024-agent population
+PASS Spatial hash finds agent
+PASS MultiMesh visibility matches population
+PASS VAT capacity matches population
+PASS Swap removal preserves survivor stable ID
+PASS Removed stable ID cannot resolve
+PASS Removal shrinks visible count without reallocating
+PASS Pause freezes animation clock
+PASS Lethal damage enters death animation
+PASS Brain abduction accepted
+PASS Duplicate abduction rejected
+PASS Abduction lifecycle completed
+SMOKE failures=0

@@ -1,0 +1,24 @@
+PASS: Outgoing clip keeps advancing during a crossfade
+PASS: Crossfade reaches equal weights halfway through
+PASS: Same-clip requests preserve playback and blend progress
+PASS: Early interruption retains the dominant outgoing clip and its cursor
+PASS: Late interruption retains the dominant destination and its independent rate
+PASS: Explicit same-clip restart is supported
+PASS: Zero-duration request switches immediately
+PASS: Immediate switch clears transition metadata
+PASS: Invalid instance and track requests are rejected
+PASS: Compaction moves the fade and clears its old slot
+PASS: Completed fades retire their outgoing sampling path
+PASS: Clock-only flushes do not dirty metadata
+PASS: An unchanged game clock preserves fade progress
+PASS: Independent controllers isolate clip requests, clocks and materials
+PASS: Crossfade shader draws visible geometry at 0.25s
+PASS: Rendered vertex position matches two moving clip samples at 0.25s
+PASS: Crossfade shader draws visible geometry at 0.75s
+PASS: Rendered vertex position matches two moving clip samples at 0.75s
+PASS: Rendered outgoing animation advances instead of freezing
+PASS: Crossfade shader draws visible geometry at 2.10s
+PASS: Rendered vertex position matches two moving clip samples at 2.10s
+PASS: Zero-instance controller allocates a valid empty buffer
+PASS: Respawn clears old clips and active transitions
+OpenVAT blending tests: 0 failure(s)

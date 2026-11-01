@@ -1,0 +1,59 @@
+{
+    "os-remap": {
+        "Min": [
+            -1.8,
+            -1.4,
+            -2.9
+        ],
+        "Max": [
+            1.1,
+            1.9,
+            1.5
+        ],
+        "Frames": 1220
+    },
+    "animations": {
+        "Idle": {
+            "startFrame": 0,
+            "endFrame": 120,
+            "framerate": 30,
+            "looping": true
+        },
+        "Walk": {
+            "startFrame": 121,
+            "endFrame": 416,
+            "framerate": 30,
+            "looping": true
+        },
+        "Run": {
+            "startFrame": 417,
+            "endFrame": 607,
+            "framerate": 30,
+            "looping": true
+        },
+        "Swing": {
+            "startFrame": 608,
+            "endFrame": 731,
+            "framerate": 30,
+            "looping": false
+        },
+        "Hit": {
+            "startFrame": 732,
+            "endFrame": 811,
+            "framerate": 30,
+            "looping": false
+        },
+        "Die": {
+            "startFrame": 812,
+            "endFrame": 1018,
+            "framerate": 30,
+            "looping": false
+        },
+        "Dramatic Die": {
+            "startFrame": 1019,
+            "endFrame": 1219,
+            "framerate": 30,
+            "looping": false
+        }
+    }
+}

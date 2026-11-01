@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3]
+[ext_resource type="Script" path="res://scripts/enemies/horde.gd" id="1"]
+[ext_resource type="Script" path="res://addons/openvat_animated/src/open_vat_multi_mesh_instance_3d.gd" id="2"]
+[sub_resource type="MultiMesh" id="MM"]
+transform_format = 1
+use_colors = true
+use_custom_data = true
+[sub_resource type="SphereShape3D" id="Sphere"]
+radius = 50.0
+[node name="Horde" type="Node3D" groups=["hordes"]]
+script = ExtResource("1")
+[node name="brain_auto_detect" type="Area3D" parent="."]
+position = Vector3(0, 5, 0)
+collision_layer = 0
+collision_mask = 2
+[node name="CollisionShape3D" type="CollisionShape3D" parent="brain_auto_detect"]
+shape = SubResource("Sphere")
+[node name="brain_mesh" type="Node3D" parent="."]
+[node name="ray_begin" type="Node3D" parent="."]
+[node name="ray_end" type="Node3D" parent="."]
+[node name="multimesh" type="MultiMeshInstance3D" parent="."]
+multimesh = SubResource("MM")
+script = ExtResource("2")
+openvat_json_config_file = "res://art/anims/zom/Zombie_Mesh.003-remap_info.json"
+[connection signal="body_entered" from="brain_auto_detect" to="." method="_on_brain_auto_detect_body_entered"]
+[connection signal="body_exited" from="brain_auto_detect" to="." method="_on_brain_auto_detect_body_exited"]

@@ -1,0 +1,168 @@
+{
+  "source_project": "Zmail",
+  "source_commit": "e28c726dafec6b80c4b3da0df5f26f46ddf5f1fe",
+  "snapshot_date": "2026-11-01",
+  "note": "Hashes describe the working-tree snapshot, not a claim that all sources were pristine at the commit. Generated UID files are new standalone identities. Corresponding parent paths for new configs and rebuilt scenes are recorded for comparison; their adjustments distinguish them from copied files.",
+  "files": [
+    {
+      "path": ".gitignore",
+      "source_path": ".gitignore",
+      "source_sha256": "44edeb5831845a58b9ebdc99a6c9f67a7fbfa12e502c27b39a5efd72471eeebd",
+      "snapshot_sha256": "e480261d4d047883d6f2e24b8ffb6bbc0b375c509cbd34f0a80e0509980f7763",
+      "unchanged": false,
+      "adjustment": "New standalone ignore rules; excludes Godot cache."
+    },
+    {
+      "path": "addons/openvat_animated/shaders/LICENSE.txt",
+      "source_path": "addons/openvat_animated/shaders/LICENSE.txt",
+      "source_sha256": "57e903cddccfc2162174b852d4019c3f3d3187e99068b07c4596eaf83c7f6fb5",
+      "snapshot_sha256": "57e903cddccfc2162174b852d4019c3f3d3187e99068b07c4596eaf83c7f6fb5",
+      "unchanged": true,
+      "adjustment": null
+    },
+    {
+      "path": "addons/openvat_animated/shaders/openvat_instanced.gdshader",
+      "source_path": "addons/openvat_animated/shaders/openvat_instanced.gdshader",
+      "source_sha256": "63f31a7e30a2d449833f2825338e23c71b55868bb110b6e6f8bd9518c7198539",
+      "snapshot_sha256": "63f31a7e30a2d449833f2825338e23c71b55868bb110b6e6f8bd9518c7198539",
+      "unchanged": true,
+      "adjustment": null
+    },
+    {
+      "path": "addons/openvat_animated/src/open_vat_animation_track.gd",
+      "source_path": "addons/openvat_animated/src/open_vat_animation_track.gd",
+      "source_sha256": "9d6cdd24ed46667ff0ace40d7f2a9e3cdf05495343ea9aafa094ce9b0ade19a9",
+      "snapshot_sha256": "9d6cdd24ed46667ff0ace40d7f2a9e3cdf05495343ea9aafa094ce9b0ade19a9",
+      "unchanged": true,
+      "adjustment": null
+    },
+    {
+      "path": "addons/openvat_animated/src/open_vat_blend_controller.gd",
+      "source_path": "addons/openvat_animated/src/open_vat_blend_controller.gd",
+      "source_sha256": "323be9ff43e5952fe9761b3fd6ce5e63dc9994ea170066a7e91d9ff325841af1",
+      "snapshot_sha256": "323be9ff43e5952fe9761b3fd6ce5e63dc9994ea170066a7e91d9ff325841af1",
+      "unchanged": true,
+      "adjustment": null
+    },
+    {
+      "path": "addons/openvat_animated/src/open_vat_multi_mesh_instance_3d.gd",
+      "source_path": "addons/openvat_animated/src/open_vat_multi_mesh_instance_3d.gd",
+      "source_sha256": "80e7eed3dc06683bc57b5f73a470a723a307107f544f54ab91d109823ef97212",
+      "snapshot_sha256": "80e7eed3dc06683bc57b5f73a470a723a307107f544f54ab91d109823ef97212",
+      "unchanged": true,
+      "adjustment": null
+    },
+    {
+      "path": "art/anims/zom/Zombie_Mesh.003-remap_info.json",
+      "source_path": "art/anims/zom/Zombie_Mesh.003-remap_info.json",
+      "source_sha256": "ad24ad8d6e99229fc22b3588cd27a2925b5ea6d11c7497f7ce7e6a7e78dec332",
+      "snapshot_sha256": "ad24ad8d6e99229fc22b3588cd27a2925b5ea6d11c7497f7ce7e6a7e78dec332",
+      "unchanged": true,
+      "adjustment": null
+    },
+    {
+      "path": "art/anims/zom/Zombie_Mesh.003_vat.exr",
+      "source_path": "art/anims/zom/Zombie_Mesh.003_vat.exr",
+      "source_sha256": "88c54a68d5f1195dc83d951054e5d901ce36bd5a2759ff5dda21d96e53d17903",
+      "snapshot_sha256": "88c54a68d5f1195dc83d951054e5d901ce36bd5a2759ff5dda21d96e53d17903",
+      "unchanged": true,
+      "adjustment": null
+    },
+    {
+      "path": "art/anims/zom/zombie.glb",
+      "source_path": "art/anims/zom/zombie.glb",
+      "source_sha256": "f5a7bde1bac981fac5b6219f30ab2bd0e929e4da4620a4fb3556830bd52534ab",
+      "snapshot_sha256": "f5a7bde1bac981fac5b6219f30ab2bd0e929e4da4620a4fb3556830bd52534ab",
+      "unchanged": true,
+      "adjustment": null
+    },
+    {
+      "path": "art/anims/zom/zombie.png",
+      "source_path": "art/anims/zom/zombie.png",
+      "source_sha256": "417d51e7c69a67166f3b326e415bf2b0e6a85e9e3debc95e8ae2532dfb93be3d",
+      "snapshot_sha256": "417d51e7c69a67166f3b326e415bf2b0e6a85e9e3debc95e8ae2532dfb93be3d",
+      "unchanged": true,
+      "adjustment": null
+    },
+    {
+      "path": "project.godot",
+      "source_path": "project.godot",
+      "source_sha256": "9838013007ea6e57f9198bcbe9d613ff7b047fabede3de0d9891bb7224cf252d",
+      "snapshot_sha256": "e4490e3c39deecda092be6875433af89329a15ba630e0ec9b785cddd0583bf5a",
+      "unchanged": false,
+      "adjustment": "New standalone configuration; no parent game autoloads or plugins."
+    },
+    {
+      "path": "resources/mats/zombie.tres",
+      "source_path": "resources/mats/zombie.tres",
+      "source_sha256": "57d0953abf7c13fabfdf2cb69cef338ff8599ab15ac624a2e3b991d56a835d06",
+      "snapshot_sha256": "57359290f99cd00359797ed83885b475f49c7cb633bdc9415aa7ca0d41e08ede",
+      "unchanged": false,
+      "adjustment": "Removed parent resource UIDs while retaining relative asset paths."
+    },
+    {
+      "path": "scenes/enemies/horde.tscn",
+      "source_path": "scenes/enemies/horde.tscn",
+      "source_sha256": "a3160579628e848611715a1b765e6952b962c4048fb4beb69fc2eadfb0fd5f72",
+      "snapshot_sha256": "fb709df86f6b4736970da60efdf81064c445356634b169fa6f1dbf9e9e50410f",
+      "unchanged": false,
+      "adjustment": "Rebuilt minimal scene; removes embedded meshes and supplies required child nodes."
+    },
+    {
+      "path": "scripts/custom_objects/dev_settings.gd",
+      "source_path": "scripts/custom_objects/dev_settings.gd",
+      "source_sha256": "efcc6c8906060ec30414892de710af243034526844a84fa79e483af432464a34",
+      "snapshot_sha256": "efcc6c8906060ec30414892de710af243034526844a84fa79e483af432464a34",
+      "unchanged": true,
+      "adjustment": null
+    },
+    {
+      "path": "scripts/custom_objects/enums.gd",
+      "source_path": "scripts/custom_objects/enums.gd",
+      "source_sha256": "8b883548c4e044c53ae2b7a9334ef3e4a83bef4713c571cc92cab98b6e0f424b",
+      "snapshot_sha256": "8b883548c4e044c53ae2b7a9334ef3e4a83bef4713c571cc92cab98b6e0f424b",
+      "unchanged": true,
+      "adjustment": null
+    },
+    {
+      "path": "scripts/enemies/horde.gd",
+      "source_path": "scripts/enemies/horde.gd",
+      "source_sha256": "dbd59f647799ac7494cff7e4dd2f83a86ec6f42b6b1415a57931e961306fce42",
+      "snapshot_sha256": "dbd59f647799ac7494cff7e4dd2f83a86ec6f42b6b1415a57931e961306fce42",
+      "unchanged": true,
+      "adjustment": null
+    },
+    {
+      "path": "scripts/enemies/horde_hit_geometry.gd",
+      "source_path": "scripts/enemies/horde_hit_geometry.gd",
+      "source_sha256": "2cb3db9e984b300c0edc06410309c7183e92b6461afdeddac08876331f87cc18",
+      "snapshot_sha256": "2cb3db9e984b300c0edc06410309c7183e92b6461afdeddac08876331f87cc18",
+      "unchanged": true,
+      "adjustment": null
+    },
+    {
+      "path": "scripts/player/player_attack_area.gd",
+      "source_path": "scripts/player/player_attack_area.gd",
+      "source_sha256": "4460f12498fb91f6fea2ffeaa1671694562ec2e3c1e8da2fe0242020a1c6637a",
+      "snapshot_sha256": "4460f12498fb91f6fea2ffeaa1671694562ec2e3c1e8da2fe0242020a1c6637a",
+      "unchanged": true,
+      "adjustment": null
+    },
+    {
+      "path": "tests/open_vat_blend_test.gd",
+      "source_path": "tests/open_vat_blend_test.gd",
+      "source_sha256": "798661a4369652101e11c9fcaf2645abee1ac83be40c0cdd90d0a82edb38836a",
+      "snapshot_sha256": "798661a4369652101e11c9fcaf2645abee1ac83be40c0cdd90d0a82edb38836a",
+      "unchanged": true,
+      "adjustment": null
+    },
+    {
+      "path": "tests/open_vat_blend_test.tscn",
+      "source_path": "tests/open_vat_blend_test.tscn",
+      "source_sha256": "332b94250d119d333ebadb467ed1dca9cea2fbc5e9e70d3096538479a88b116d",
+      "snapshot_sha256": "85b21b366a8e15ce97d86c94536f5bd8456b536198cfa4ca4accd545bc115918",
+      "unchanged": false,
+      "adjustment": "New minimal runner scene for the unchanged inherited test script."
+    }
+  ]
+}
