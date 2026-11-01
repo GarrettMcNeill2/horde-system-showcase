@@ -2,7 +2,7 @@
   "source_project": "Zmail",
   "source_commit": "e28c726dafec6b80c4b3da0df5f26f46ddf5f1fe",
   "snapshot_date": "2026-11-01",
-  "note": "Hashes describe the working-tree snapshot, not a claim that all sources were pristine at the commit. Generated UID files are new standalone identities. Corresponding parent paths for new configs and rebuilt scenes are recorded for comparison; their adjustments distinguish them from copied files.",
+  "note": "Hashes identify the working-tree files used for the extraction. Generated UID files belong to the standalone project. Adjustment entries describe configuration and scene changes relative to Zmail.",
   "files": [
     {
       "path": ".gitignore",
