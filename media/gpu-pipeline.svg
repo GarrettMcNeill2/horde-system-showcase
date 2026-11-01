@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
-<title id="title">CPU → GPU rendering pipeline</title><desc id="desc">A source-level rendering diagram. No compute dispatch or captured graphics API command list is claimed.</desc>
+<title id="title">CPU → GPU rendering pipeline</title><desc id="desc">Resource updates and shader stages used to render the horde.</desc>
 <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="none" stroke="#68d8cb" stroke-width="1.5"/></marker></defs>
 <rect width="1600" height="1000" fill="#0c1522"/>
 <path d="M60 136H1540" stroke="#294055"/>
 <text x="60" y="72" fill="#f2f6fa" font-family="Arial,sans-serif" font-size="36" font-weight="700">CPU → GPU rendering pipeline</text>
-<text x="60" y="112" fill="#a9bed1" font-family="Arial,sans-serif" font-size="21">A source-level rendering diagram. No compute dispatch or captured graphics API command list is claimed.</text>
+<text x="60" y="112" fill="#a9bed1" font-family="Arial,sans-serif" font-size="21">Resource updates and shader stages used to render the horde.</text>
 <rect x="60" y="180" width="440" height="250" rx="12" fill="#142537" stroke="#36536a"/>
 <rect x="60" y="198" width="4" height="32" fill="#68d8cb"/>
 <text x="84" y="220" fill="#68d8cb" font-family="Arial,sans-serif" font-size="23" font-weight="700">CPU / Simulation</text>
@@ -35,7 +35,7 @@
 <rect x="60" y="530" width="960" height="230" rx="12" fill="#142537" stroke="#36536a"/>
 <rect x="60" y="548" width="4" height="32" fill="#68d8cb"/>
 <text x="84" y="570" fill="#68d8cb" font-family="Arial,sans-serif" font-size="23" font-weight="700">Cost and draw-call interpretation</text>
-<text x="84" y="610" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Instancing batches repeated geometry; it does not make the whole scene one draw call.</text>
+<text x="84" y="610" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Instancing batches repeated geometry for each surface and rendering pass.</text>
 <text x="84" y="640" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Pass count depends on surfaces, shadows, transparency, lighting and renderer.</text>
 <text x="84" y="670" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">One active crossfade adds outgoing VAT samples and metadata reads per vertex.</text>
 <text x="84" y="700" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">AI, navigation, ground rays and instance transform updates remain CPU work.</text>

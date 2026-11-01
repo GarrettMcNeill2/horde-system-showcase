@@ -16,22 +16,27 @@ The integration suite checks navigation synchronization, spawn count, movement, 
 
 The inherited VAT suite verifies per-instance metadata, clip requests, source-clip advancement, completion, zero capacity, respawn behavior and actual rendered vertex displacement during crossfades. See `integration-results.txt` and `vat-rendering-results.txt` for the recorded assertions.
 
-Both suites require a desktop renderer. A headless trial exercised simulation assertions but Godot's dummy renderer produced MultiMesh buffer diagnostics; it is not the supported validation command. The final graphical suites passed without those diagnostics.
+Both suites require a desktop renderer. Import assets before running either suite in a fresh clone.
 
-## Commands
+## Run the checks
 
 ```sh
 godot --headless --editor --path . --import --quit
 godot --path . res://tests/smoke.tscn
 godot --path . res://tests/open_vat_blend_test.tscn
+```
+
+## Capture screenshots
+
+```sh
 godot --path . -- --capture
 python3 tools/build_diagrams.py
 ```
 
-## Limits
+The capture command saves four viewport PNGs and exits. The Python command regenerates the SVG diagrams.
 
-No raw GPU API capture, GPU timestamp profile, sustained benchmark, executable export, Windows/Linux run, or public GitHub push was performed. Controls are exercised through the harness and integration methods; a full manual keyboard/mouse acceptance pass was not recorded. The flat arena does not prove obstacle navigation or uneven-terrain behavior. Asset import is required before running tests in a fresh clone.
+## Test coverage
 
-`capture-observation.json` is one short capture-run observation. FPS and process time in screenshots are transient whole-scene observations, not a comparative performance study. The screenshot process itself can affect frame metrics.
+Validation covers Godot 4.6.1 on an Apple M2 Pro using the Compatibility renderer. GPU API traces, GPU timings, sustained benchmarks, executable exports and Windows/Linux runtime checks remain untested. The automated checks exercise the arena methods; manual keyboard and mouse coverage is incomplete. Obstacle navigation and uneven terrain are outside this flat arena's coverage.
 
-For publishable performance numbers, run each population after warm-up, record hardware/OS/Godot/renderer/resolution, keep camera/target/seed fixed, gather frame-time samples for a stated duration, and compare medians and tail latency. Use the engine profiler to separate scripting, navigation, physics and rendering; use a renderer-compatible graphics debugger for the actual API command stream.
+`media/capture-observation.json` records one capture run. Screenshot capture can affect frame metrics. For performance comparisons, keep the hardware, renderer, resolution, population, camera and target fixed, allow a warm-up period, and record frame times over a stated duration.

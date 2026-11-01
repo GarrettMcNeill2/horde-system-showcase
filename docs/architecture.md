@@ -10,7 +10,7 @@
 
 `Horde._physics_process()` updates brain intent, gravity, effects, individual states and movement. It stores current transforms, drains queued path requests, rebuilds the spatial hash and scans active attack areas. `_process()` advances the pause-aware animation clock, flushes blend metadata and interpolates previous/current world transforms before converting them to the moving MultiMesh's local space. Only transforms interpolate; clip frame indices remain discrete.
 
-`sync_animation_track()` maps states to VAT clips and chooses transition durations, one-shot behavior and attack playback rates. `OpenVATBlendController.request_clip()` records both clips' metadata; `flush()` updates the material clock and dirty texture. The shader samples adjacent frames for position and normals, optionally samples an advancing outgoing clip, then blends the decoded deformation. This is vertex-shader animation, not compute-shader AI or compute dispatch.
+`sync_animation_track()` maps states to VAT clips and chooses transition durations, one-shot behavior and attack playback rates. `OpenVATBlendController.request_clip()` records both clips' metadata; `flush()` updates the material clock and dirty texture. The shader samples adjacent frames for position and normals, optionally samples an advancing outgoing clip, then blends the decoded deformation. Animation deformation runs in the vertex shader; AI runs on the CPU.
 
 ```mermaid
 flowchart LR
@@ -51,13 +51,13 @@ flowchart LR
 ## Cost model and limits
 
 - Simulation, hash rebuilding and render transform updates iterate across the live population. Ground snapping performs physics rays. Navigation and AI remain CPU work.
-- The queued individual path budget controls queue consumption, not total frame time or the brain's direct navigation calls. `resolve_zombie()` linearly searches stable IDs; queue de-duplication and removing from its front also have scaling costs.
-- Cell queries reduce expected candidates for spread-out crowds. Avoidance caps accepted neighbors at eight, but building the candidate list can still traverse many agents in dense cells. This is not a guaranteed O(N) full-frame algorithm.
-- Swap removal copies the final live slot across related arrays and animation data, avoids shifting survivors, and retains the GPU allocation. It does not free memory until the horde is reset or destroyed.
-- Metadata storage is 3 × 16 bytes = 48 bytes per allocated agent before engine/texture overhead. `ImageTexture.update()` updates the metadata image when dirty; it is not a per-pixel partial upload API here.
+- The queued individual path budget controls queue consumption. Brain navigation calls run separately. `resolve_zombie()` linearly searches stable IDs; queue de-duplication and removing from its front also have scaling costs.
+- Cell queries reduce expected candidates for spread-out crowds. Avoidance caps accepted neighbors at eight, but building the candidate list can still traverse many agents in dense cells. Dense crowds can increase query costs substantially.
+- Swap removal copies the final live slot across related arrays and animation data, avoids shifting survivors, and retains the GPU allocation. Memory is released when the horde is reset or destroyed.
+- Metadata storage is 3 × 16 bytes = 48 bytes per allocated agent before engine/texture overhead. `ImageTexture.update()` uploads the complete metadata image when dirty.
 - Each ordinary VAT sample uses adjacent-frame position and normal reads. Crossfades add outgoing-clip reads plus metadata texture reads. Fragment material samples, transparent passes and shadows add separate cost.
-- MultiMesh batches repeated geometry by surface and rendering pass. The HUD is whole-scene draw count. It is not an API-call trace or horde-only count. No GPU timestamps were captured.
-- The world grid uses one antialiased shader plane. It illustrates cell size, not cell occupancy. The camera and UI are demonstration features, not part of the game horde.
+- MultiMesh batches repeated geometry by surface and rendering pass. The HUD is whole-scene draw count. GPU timestamp profiling remains untested.
+- The world grid uses one antialiased shader plane. It illustrates cell size. The arena script owns the camera and UI.
 - The arena has no obstacles and no terrain variation; those production cases are deliberately outside the isolated demo. Culling uses broad horde bounds, trading fine-grained culling for simpler batching.
 
 ## Relevant source

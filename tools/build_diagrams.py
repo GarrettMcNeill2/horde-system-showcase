@@ -28,12 +28,12 @@ diagram('workflow','Horde simulation workflow','Fixed physics updates own state.
 'Array iteration stays O(N). Spatial hashing narrows candidates; dense cells and path queues can still be costly.'
 ])
 
-diagram('gpu-pipeline','CPU → GPU rendering pipeline','A source-level rendering diagram. No compute dispatch or captured graphics API command list is claimed.',[
+diagram('gpu-pipeline','CPU → GPU rendering pipeline','Resource updates and shader stages used to render the horde.',[
 (60,180,440,250,'CPU / Simulation',['_physics_process(): positions + states','_process(): interpolated transforms','request_clip(): two advancing clips','flush(): upload dirty metadata']),
 (580,180,440,250,'Engine / Resource updates',['MultiMesh instance transforms','INSTANCE_CUSTOM: phase / frames / alpha','COLOR: loop flag / timestamp / fps','RGBAF texture: 3 rows per instance']),
 (1100,180,440,250,'GPU / Vertex stage',['Read VAT positions + packed normals','Interpolate adjacent baked frames','When blending: sample outgoing clip','Crossfade → deformed vertex + normal']),
 (1100,530,440,230,'GPU / Fragment stage',['Albedo and material texture samples','Lighting, depth and transparency','Rasterize instanced zombie surfaces']),
-(60,530,960,230,'Cost and draw-call interpretation',['Instancing batches repeated geometry; it does not make the whole scene one draw call.','Pass count depends on surfaces, shadows, transparency, lighting and renderer.','One active crossfade adds outgoing VAT samples and metadata reads per vertex.','AI, navigation, ground rays and instance transform updates remain CPU work.']),
+(60,530,960,230,'Cost and draw-call interpretation',['Instancing batches repeated geometry for each surface and rendering pass.','Pass count depends on surfaces, shadows, transparency, lighting and renderer.','One active crossfade adds outgoing VAT samples and metadata reads per vertex.','AI, navigation, ground rays and instance transform updates remain CPU work.']),
 ],['M500 300H580','M1020 300H1100','M1320 430V530'],[
 'Source: openvat_instanced.gdshader, OpenVATBlendController.flush(), Horde._process().',
 'Use a graphics debugger on the target renderer for actual API calls and GPU timings; HUD draw calls cover the whole scene.'
@@ -41,7 +41,7 @@ diagram('gpu-pipeline','CPU → GPU rendering pipeline','A source-level renderin
 
 diagram('spatial-and-lifecycle','Spatial queries and stable agent identity','Broad-phase lookup reduces candidate work; stable IDs keep delayed work valid when arrays compact.',[
 (60,180,700,270,'Spatial query path',['Position → floor(X / 5), floor(Z / 5) → cell key','rebuild_spatial_hash(): cell → agent array indices','query_radius() / query_aabb(): visit relevant cells','Narrow phase checks distance or hit geometry','Avoidance caps accepted neighbors at 8; candidates may exceed 8']),
-(840,180,700,270,'Deferred path request',['Queue stores zombie ID, rather than a temporary array index','process_path_requests() resolves ID at consumption time','Missing or dying agent → ignore stale request','Live agent → NavigationServer3D.map_get_path()','Budget limits queued requests, not every navigation call']),
+(840,180,700,270,'Deferred path request',['Queue stores a stable zombie ID','process_path_requests() resolves ID at consumption time','Missing or dying agent → ignore stale request','Live agent → NavigationServer3D.map_get_path()','Budget limits queued requests; brain paths run separately']),
 (60,550,700,210,'Example / remove slot 1',['Before: slots [0, 1, 2, 3] → IDs [10, 11, 12, 13]','die(1): move last slot and all related state to slot 1','After: visible slots [0, 1, 2] → IDs [10, 13, 12]']),
 (840,550,700,210,'Example / consume ID 13',['ID 13 now resolves to slot 1; animation phase is preserved','ID 11 resolves to -1; its queued work is discarded','MultiMesh allocation stays; visible_instance_count decreases']),
 ],['M410 450V550','M1190 450V550','M760 650H840'],[

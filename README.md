@@ -6,14 +6,21 @@ A standalone demonstration of Zmail's horde architecture: array-based enemy simu
 
 ## Run
 
-Open `project.godot` with Godot **4.6.1 or newer 4.6.x**, let asset import finish, then press **F6** on `showcase/main.tscn` or **F5**. No plugins need enabling, no terrain extension is required, and no parent-project files are loaded. Desktop Compatibility rendering is the tested configuration.
+Clone or download this repository:
+
+```sh
+git clone https://github.com/GarrettMcNeill2/horde-system-showcase.git
+cd horde-system-showcase
+```
+
+Open `project.godot` with Godot **4.6.1 or newer 4.6.x**, let asset import finish, then press **F6** on `showcase/main.tscn` or **F5**. Desktop Compatibility rendering is the tested configuration.
 
 ```sh
 godot --editor --path .
 godot --path .
 ```
 
-The runnable populations are **64 / 256 / 1,024**. These are selectable workloads, not performance guarantees. Click the arena to move the amber target; agents navigate and attack it.
+The runnable populations are **64 / 256 / 1,024**. Click the arena to move the amber target; agents navigate and attack it.
 
 | Control | Action |
 |---|---|
@@ -37,25 +44,25 @@ The runnable populations are **64 / 256 / 1,024**. These are selectable workload
 
 ![CPU to GPU pipeline](media/gpu-pipeline.svg)
 
-## Scope and provenance
+## Project layout
 
-The horde, geometry, effect settings, attack-area contract, VAT controller and runtime shader are source snapshots from the parent project. `showcase/` is a new presentation harness and minimal player adapter. The enemy scene is rebuilt without its large embedded mesh; the actual zombie GLB and VAT bake are loaded at runtime. There is no terrain, vehicle simulation, full game loop or dependency on the parent autoloads other than the copied effect settings.
+`showcase/` contains the arena, camera, controls and target. `scripts/enemies/` contains the horde simulation and hit geometry. `addons/openvat_animated/` contains the animation runtime and shader. Zombie models and animation textures load from `art/anims/zom/`.
 
-The flat navigation surface isolates behavior rather than demonstrating obstacle routing. The grid is a world reference aligned to the spatial cell size; it does not visualize occupied-cell membership. The renderer still handles several passes: MultiMesh batching does **not** imply one draw call for the scene. See [architecture](docs/architecture.md), [verification](docs/verification.md), and [credits](CREDITS.md).
+The demo uses a flat navigation surface and a 5 m reference grid. See [implementation details](docs/architecture.md), [test results](docs/verification.md), and [credits](CREDITS.md).
 
-## Showcase kit
+## Screenshots and diagrams
 
 | File | Use |
 |---|---|
-| `media/04-hero.png` | Clean website or GitHub cover; real engine capture |
+| `media/04-hero.png` | Arena view with the panel hidden |
 | `media/01-overview.png` | Whole horde with runtime metrics |
 | `media/02-close-view.png` | Closer animation and target view |
 | `media/03-spatial-grid.png` | Elevated arena and spatial cell scale |
 | `media/workflow.svg` | Simulation workflow graphic |
 | `media/gpu-pipeline.svg` | CPU/resource upload/vertex/fragment diagram |
 | `media/spatial-and-lifecycle.svg` | Spatial lookup and stable-ID compaction |
-| `docs/portfolio-copy.md` | Website copy, captions, alt text and walkthrough |
-| `docs/architecture.md` | Source map, tradeoffs and editable Mermaid flowcharts |
+| `docs/walkthrough.md` | Things to try in the demo |
+| `docs/architecture.md` | Simulation and rendering details |
 | `docs/source-manifest.json` | Checksums and exact snapshot provenance |
 
 All screenshots are 1600 × 900 PNGs. Diagrams are available as 1600 × 1000 PNGs and scalable SVGs with text and accessible titles. Regenerate the diagrams with `python3 tools/build_diagrams.py`.
@@ -69,6 +76,5 @@ godot --path . res://tests/smoke.tscn
 godot --path . res://tests/open_vat_blend_test.tscn
 ```
 
-Capture transitions are scheduled by physics ticks with a fixed random seed. Rendering rate and asynchronous engine work can still change exact pixels. The HUD reports whole-scene draw calls and process time, not horde-only draws or GPU time. `media/capture-observation.json` records one capture-run observation, not a benchmark.
+Capture transitions are scheduled by physics ticks with a fixed random seed. Rendering rate and asynchronous engine work can still change exact pixels. The HUD reports whole-scene draw calls and process time. `media/capture-observation.json` records a single capture run. Frame metrics can vary while screenshots are being saved.
 
-To make a separate GitHub repository, copy **the contents of this folder** as its root. `.godot/` is ignored. Review [credits and redistribution scope](CREDITS.md) before choosing a public repository license.

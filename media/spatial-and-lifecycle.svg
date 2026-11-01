@@ -16,11 +16,11 @@
 <rect x="840" y="180" width="700" height="270" rx="12" fill="#142537" stroke="#36536a"/>
 <rect x="840" y="198" width="4" height="32" fill="#68d8cb"/>
 <text x="864" y="220" fill="#68d8cb" font-family="Arial,sans-serif" font-size="23" font-weight="700">Deferred path request</text>
-<text x="864" y="260" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Queue stores zombie ID, rather than a temporary array index</text>
+<text x="864" y="260" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Queue stores a stable zombie ID</text>
 <text x="864" y="290" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">process_path_requests() resolves ID at consumption time</text>
 <text x="864" y="320" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Missing or dying agent → ignore stale request</text>
 <text x="864" y="350" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Live agent → NavigationServer3D.map_get_path()</text>
-<text x="864" y="380" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Budget limits queued requests, not every navigation call</text>
+<text x="864" y="380" fill="#e1eaf3" font-family="Arial,sans-serif" font-size="20">Budget limits queued requests; brain paths run separately</text>
 <rect x="60" y="550" width="700" height="210" rx="12" fill="#142537" stroke="#36536a"/>
 <rect x="60" y="568" width="4" height="32" fill="#68d8cb"/>
 <text x="84" y="590" fill="#68d8cb" font-family="Arial,sans-serif" font-size="23" font-weight="700">Example / remove slot 1</text>
