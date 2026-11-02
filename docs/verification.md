@@ -40,3 +40,7 @@ The capture command saves four viewport PNGs and exits. The Python command regen
 Validation covers Godot 4.6.1 on an Apple M2 Pro using the Compatibility renderer. GPU API traces, GPU timings, sustained benchmarks, executable exports and Windows/Linux runtime checks remain untested. The automated checks exercise the arena methods; manual keyboard and mouse coverage is incomplete. Obstacle navigation and uneven terrain are outside this flat arena's coverage.
 
 `media/capture-observation.json` records one capture run. Screenshot capture can affect frame metrics. For performance comparisons, keep the hardware, renderer, resolution, population, camera and target fixed, allow a warm-up period, and record frame times over a stated duration.
+
+## Spatial-query comparison
+
+The paired benchmark covers six population/layout combinations with identical query results, three warm-up batches and eleven timed batches per implementation. See [performance.md](performance.md) for measurements, assumptions and raw samples. The benchmark runs headless because it only exercises array queries.

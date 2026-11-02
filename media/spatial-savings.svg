@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1000" viewBox="0 0 1400 1000"><rect width="1400" height="1000" fill="#0c1522"/><g font-family="Arial,sans-serif" fill="#e1eaf3"><text x="60" y="65" font-size="32">CPU cost of local agent queries</text><text x="60" y="105" font-size="20">One query per agent. Median of 11 batches; spatial hash includes rebuild.</text><text x="60" y="145" font-size="18">Apple M2 Pro · Godot 4.6.1 · Synthetic static positions · Radius 1.6 m · Cells 5 m</text>
+<text x="60" y="230" font-size="21">64 / spread</text>
+<rect x="285" y="205" width="2.00" height="24" fill="#e8ad69"/><text x="301.37" y="224" font-size="18">Full scan: 0.114 ms</text>
+<rect x="285" y="241" width="2.00" height="24" fill="#68d8cb"/><text x="301.49" y="260" font-size="18">Hash + rebuild: 0.124 ms</text>
+<text x="60" y="343" font-size="21">64 / dense</text>
+<rect x="285" y="318" width="2.04" height="24" fill="#e8ad69"/><text x="302.04" y="337" font-size="18">Full scan: 0.170 ms</text>
+<rect x="285" y="354" width="3.92" height="24" fill="#68d8cb"/><text x="303.92" y="373" font-size="18">Hash + rebuild: 0.327 ms</text>
+<text x="60" y="456" font-size="21">256 / spread</text>
+<rect x="285" y="431" width="19.64" height="24" fill="#e8ad69"/><text x="319.64" y="450" font-size="18">Full scan: 1.637 ms</text>
+<rect x="285" y="467" width="7.34" height="24" fill="#68d8cb"/><text x="307.34" y="486" font-size="18">Hash + rebuild: 0.612 ms</text>
+<text x="60" y="569" font-size="21">256 / dense</text>
+<rect x="285" y="544" width="27.55" height="24" fill="#e8ad69"/><text x="327.55" y="563" font-size="18">Full scan: 2.296 ms</text>
+<rect x="285" y="580" width="43.01" height="24" fill="#68d8cb"/><text x="343.01" y="599" font-size="18">Hash + rebuild: 3.584 ms</text>
+<text x="60" y="682" font-size="21">1,024 / spread</text>
+<rect x="285" y="657" width="301.37" height="24" fill="#e8ad69"/><text x="601.37" y="676" font-size="18">Full scan: 25.114 ms</text>
+<rect x="285" y="693" width="45.47" height="24" fill="#68d8cb"/><text x="345.47" y="712" font-size="18">Hash + rebuild: 3.789 ms</text>
+<text x="60" y="795" font-size="21">1,024 / dense</text>
+<rect x="285" y="770" width="412.94" height="24" fill="#e8ad69"/><text x="712.94" y="789" font-size="18">Full scan: 34.412 ms</text>
+<rect x="285" y="806" width="593.47" height="24" fill="#68d8cb"/><text x="893.47" y="825" font-size="18">Hash + rebuild: 49.456 ms</text>
+<text x="60" y="915" font-size="20">Spread: 72 × 72 m. Dense: 4 × 4 m. Dense queries visit every agent.</text><text x="60" y="952" font-size="18">Scope: query CPU time. Simulation, animation and rendering are excluded.</text></g></svg>

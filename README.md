@@ -33,6 +33,14 @@ The runnable populations are **64 / 256 / 1,024**. Click the arena to move the a
 | Left / Right / wheel | Orbit / zoom |
 | F12 | Write PNG to `media/` |
 
+## Resource savings
+
+At 1,024 agents spread over a 72 × 72 m area, the spatial-query benchmark reduced CPU time from **25.114 ms to 3.789 ms per batch**, including grid rebuild. That is **84.9% less time** for one radius query per agent on an Apple M2 Pro. Both implementations returned identical results. Full scans were faster in all dense cases and at 64 spread-out agents.
+
+The system also batches zombie rendering, evaluates baked animation on the GPU, budgets queued path requests and reuses instance allocations during deaths. See [resource savings and profiling metrics](docs/performance.md) for measured results, comparison assumptions, GPU tradeoffs and reproduction commands.
+
+![Spatial-query CPU cost](media/spatial-savings.png)
+
 ## Engineering focus
 
 - **Simulation ownership:** one Horde node maintains packed position, health and timing arrays plus state/path arrays. Zombies do not each require a scene node, skeleton or AnimationPlayer.
